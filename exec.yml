@@ -1,0 +1,9 @@
+---
+- name: Play to Shutdown Windows
+  hosts: windows_hosts
+  tasks:
+  - name: Shutdown Windows PC
+    win_shell: |
+        $session = (query user | Select-String $env:USERNAME).ToString().Split(" ", [System.StringSplitOptions]'RemoveEmptyEntries')[2]
+        logoff $session
+    

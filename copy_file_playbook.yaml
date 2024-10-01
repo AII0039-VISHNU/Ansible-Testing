@@ -1,0 +1,12 @@
+---
+- name: Sync folder from Ansible control machine to Windows machine
+  hosts: windows_hosts
+  tasks:
+    - name: Copy folder to Windows machine
+      ansible.windows.win_copy:
+        src: /home/ai/Desktop/ansible/logoff.ps1
+        dest: C:\
+        recurse: yes
+        remote_src: no
+
+

@@ -1,0 +1,9 @@
+---
+- name: Sync folder from Ansible control machine to Windows machine
+  hosts: windows_hosts
+  tasks:
+    - name: run ps1 file in  Windows machine
+      ansible.windows.win_powershell:
+        win_command: shutdown.exe /1
+        async: 10
+        poll: 0          
